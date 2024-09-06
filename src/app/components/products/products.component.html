@@ -1,0 +1,29 @@
+@if (!loading) {
+  <main class="d-flex align-item-center justify-content-center w-100">
+    <div class="row container p-3 d-flex align-item-center justify-content-center">
+      @for (product of products; track $index) {
+        <div class="card col-3 p-2 m-1">
+          <div class="text-center">
+            <img src="{{product.image}}" style="height: 10rem; width: 10rem;" class="card-img-top">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-truncate">{{product.title |slice:0:25}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{product.category}}</h6>
+            <p class="card-text text-truncate">{{product.description | slice:0:100}}.</p>
+            <div class="d-flex align-item-center justify-content-between">
+              <p class="text-muted">{{product.price}} $</p>
+              <button type="button" class="btn btn-success">Add To Cart</button>
+            </div>
+
+          </div>
+        </div>
+      }
+      </div>
+
+  </main>
+}
+
+@else {
+  <h1>No Products</h1>
+}
+
